@@ -21,22 +21,13 @@ ExternalProject_Add(mpv-release
         lcms2
         libarchive
         libass
-        libdvdnav
-        libdvdread
-        libiconv
         libjpeg
         libpng
-        luajit
-        rubberband
         uchardet
-        openal-soft
         mujs
-        vulkan
         shaderc
         libplacebo
         spirv-cross
-        vapoursynth
-        libsdl2
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
@@ -50,21 +41,19 @@ ExternalProject_Add(mpv-release
         -Doptimization=3
         -Db_lto=true
         ${mpv_lto_mode}
+        -Dgpl=false
+        -Db_lto=true
+        -Db_ndebug=true
         -Dlibmpv=true
         -Dpdf-build=enabled
-        -Dlua=enabled
+        -Dlua=disabled
         -Djavascript=enabled
-        -Dsdl2=enabled
-        -Dlibarchive=enabled
-        -Dlibbluray=enabled
-        -Ddvdnav=enabled
         -Duchardet=enabled
-        -Drubberband=enabled
         -Dlcms2=enabled
-        -Dopenal=enabled
+        -Dopenal=disabled
         -Dspirv-cross=enabled
         -Dvulkan=enabled
-        -Dvapoursynth=enabled
+        -Dlibplacebo=enabled
         -Degl-angle=enabled
     BUILD_COMMAND ${EXEC} LTO_JOB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
