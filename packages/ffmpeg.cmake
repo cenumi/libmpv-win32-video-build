@@ -18,7 +18,6 @@ ExternalProject_Add(ffmpeg
         speex
         vorbis
         libvpl
-        libjxl
         libxml2
         libplacebo
         shaderc
@@ -88,7 +87,7 @@ ExternalProject_Add(ffmpeg
 
         --enable-mbedtls
 
-        --enable-libjxl
+        --disable-libjxl
         --enable-libdav1d
         --enable-libplacebo
 
